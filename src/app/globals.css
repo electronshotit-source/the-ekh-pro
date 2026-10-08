@@ -1,0 +1,248 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ==========================================================================
+   Tokens — single source of truth.
+
+   Primitive → semantic → component. The product is dark-only; everything
+   else in the app references the semantic
+   layer below, never a hex value.
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* --- primitives: warm dark ("ink & champagne") ---
+     Near-black with a brown undertone rather than neutral grey, so photos
+     read warm; a champagne-gold accent in place of the default violet. */
+  --bg: #121110;
+  --layer-1: #1a1917;
+  --layer-2: #24221f;
+  --stroke: #1d1b19;
+  --accent-1: #d9b77e;
+  --accent-1-bg: #2b2418;
+  --text-primary: #f3efe8;
+  --text-secondary: #b3aca1;
+  --grey: #8a8378;
+
+  /* --- extensions: gaps the base system doesn't cover --- */
+  /* Visible edge for cards and controls; --stroke is for hairlines only. */
+  --stroke-strong: #2f2c28;
+  --accent-1-hover: #e6c995;
+  /* Text that sits on the accent or on light ink fills. */
+  --on-accent: #17120a;
+  --danger: #f08174;
+  --danger-bg: #3a1d1a;
+  --success: #6fd29b;
+  --success-bg: #152a1e;
+  --warning: #f0b860;
+  --warning-bg: #33260f;
+
+  /* --- shadcn semantic mapping --- */
+  --background: var(--bg);
+  --foreground: var(--text-primary);
+  --card: var(--bg);
+  --card-foreground: var(--text-primary);
+  --popover: var(--layer-1);
+  --popover-foreground: var(--text-primary);
+  --primary: var(--accent-1);
+  --primary-foreground: var(--on-accent);
+  --secondary: var(--layer-1);
+  --secondary-foreground: var(--text-primary);
+  --muted: var(--layer-1);
+  /* --grey clears 5:1 on --bg, but body copy still uses --text-secondary. */
+  --muted-foreground: var(--text-secondary);
+  --accent: var(--layer-1);
+  --accent-foreground: var(--text-primary);
+  --destructive: var(--danger);
+  --border: var(--stroke-strong);
+  --input: var(--stroke-strong);
+  --ring: var(--accent-1);
+  --chart-1: var(--accent-1);
+  --chart-2: #b8955e;
+  --chart-3: #7f6844;
+  --chart-4: var(--text-secondary);
+  --chart-5: var(--grey);
+  --sidebar: var(--layer-1);
+  --sidebar-foreground: var(--text-primary);
+  --sidebar-primary: var(--accent-1);
+  --sidebar-primary-foreground: var(--on-accent);
+  --sidebar-accent: var(--layer-2);
+  --sidebar-accent-foreground: var(--text-primary);
+  --sidebar-border: var(--stroke-strong);
+  --sidebar-ring: var(--accent-1);
+
+  /* --- shape --- */
+  --radius: 0.75rem;
+
+  /* --- elevation --- */
+  /* Dark UIs need heavier shadows to read at all. */
+  --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.35);
+  --shadow-sm: 0 1px 3px rgb(0 0 0 / 0.4), 0 1px 2px rgb(0 0 0 / 0.3);
+  --shadow-md: 0 8px 20px -6px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.35);
+  --shadow-lg: 0 24px 48px -16px rgb(0 0 0 / 0.65), 0 6px 12px -6px rgb(0 0 0 / 0.4);
+  --shadow-focus: 0 0 0 3px color-mix(in srgb, var(--accent-1) 22%, transparent);
+
+  /* --- layering --- */
+  --z-sticky: 20;
+  --z-nav: 40;
+  --z-composer: 45;
+  --z-overlay: 50;
+  --z-modal: 60;
+  --z-toast: 70;
+
+  /* --- motion (mirrors src/lib/motion.ts) --- */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-base: 240ms;
+  --duration-slow: 350ms;
+}
+
+@theme inline {
+  /* fonts (set by next/font in the root layout) */
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-instrument-serif);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-inter);
+
+  /* product semantic names — use these in app code */
+  --color-surface: var(--bg);
+  --color-layer-1: var(--layer-1);
+  --color-layer-2: var(--layer-2);
+  --color-stroke: var(--stroke);
+  --color-stroke-strong: var(--stroke-strong);
+  --color-brand: var(--accent-1);
+  --color-brand-hover: var(--accent-1-hover);
+  --color-brand-soft: var(--accent-1-bg);
+  --color-on-accent: var(--on-accent);
+  --color-ink: var(--text-primary);
+  --color-ink-2: var(--text-secondary);
+  --color-ink-3: var(--grey);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-bg);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-bg);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-bg);
+
+  /* shadcn semantic names — used by components/ui */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+
+  --ease-out-soft: var(--ease-out);
+
+  --animate-pulse-soft: pulse-soft 1.8s var(--ease-out) infinite;
+  --animate-marquee: marquee 48s linear infinite;
+  --animate-scan: scan 1.4s var(--ease-out) infinite;
+
+  @keyframes pulse-soft {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.45;
+      transform: scale(0.85);
+    }
+  }
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes scan {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  ::selection {
+    background: var(--accent-1-bg);
+    color: var(--text-primary);
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent-1);
+    outline-offset: 2px;
+  }
+  /* Numbers that change in place (scores, timers, prices) shouldn't jitter. */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -38,13 +38,13 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
-  colorScheme: "light",
+  themeColor: "#121110",
+  colorScheme: "dark",
 }
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable} ${instrumentSerif.variable} ${geistMono.variable} h-full`}>
+    <html lang="en" className={`${inter.variable} ${instrumentSerif.variable} ${geistMono.variable} dark h-full`}>
       <body className="min-h-full">
         <NuqsAdapter>
           <TooltipProvider delayDuration={250}>{children}</TooltipProvider>

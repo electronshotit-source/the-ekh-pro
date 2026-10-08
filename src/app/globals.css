@@ -7,49 +7,53 @@
 /* ==========================================================================
    Tokens — single source of truth.
 
-   Primitive → semantic → component. Primitives are the design-engineer
-   default light system; everything else in the app references the semantic
+   Primitive → semantic → component. The product is dark-only; everything
+   else in the app references the semantic
    layer below, never a hex value.
    ========================================================================== */
 
 :root {
-  /* --- primitives (default light system) --- */
-  --bg: #ffffff;
-  --layer-1: #f7f7f7;
-  --layer-2: #efefef;
-  --stroke: #f7f7f7;
-  --accent-1: #564cd8;
-  --accent-1-bg: #ecebff;
-  --text-primary: #252525;
-  --text-secondary: #515151;
-  --grey: #828282;
+  color-scheme: dark;
 
-  /* --- extensions: gaps the default system doesn't cover --- */
-  /* #F7F7F7 is invisible on white; interactive outlines need a visible edge. */
-  --stroke-strong: #e6e6e6;
-  --accent-1-hover: #4a40c4;
-  --danger: #c93a2e;
-  --danger-bg: #fdecea;
-  --success: #1e7d48;
-  --success-bg: #e7f5ec;
-  --warning: #a35c00;
-  --warning-bg: #fff4e0;
+  /* --- primitives: warm dark ("ink & champagne") ---
+     Near-black with a brown undertone rather than neutral grey, so photos
+     read warm; a champagne-gold accent in place of the default violet. */
+  --bg: #121110;
+  --layer-1: #1a1917;
+  --layer-2: #24221f;
+  --stroke: #1d1b19;
+  --accent-1: #d9b77e;
+  --accent-1-bg: #2b2418;
+  --text-primary: #f3efe8;
+  --text-secondary: #b3aca1;
+  --grey: #8a8378;
+
+  /* --- extensions: gaps the base system doesn't cover --- */
+  /* Visible edge for cards and controls; --stroke is for hairlines only. */
+  --stroke-strong: #2f2c28;
+  --accent-1-hover: #e6c995;
+  /* Text that sits on the accent or on light ink fills. */
+  --on-accent: #17120a;
+  --danger: #f08174;
+  --danger-bg: #3a1d1a;
+  --success: #6fd29b;
+  --success-bg: #152a1e;
+  --warning: #f0b860;
+  --warning-bg: #33260f;
 
   /* --- shadcn semantic mapping --- */
   --background: var(--bg);
   --foreground: var(--text-primary);
   --card: var(--bg);
   --card-foreground: var(--text-primary);
-  --popover: var(--bg);
+  --popover: var(--layer-1);
   --popover-foreground: var(--text-primary);
   --primary: var(--accent-1);
-  --primary-foreground: #ffffff;
+  --primary-foreground: var(--on-accent);
   --secondary: var(--layer-1);
   --secondary-foreground: var(--text-primary);
   --muted: var(--layer-1);
-  /* --grey (#828282) is 3.9:1 on white — below AA for body text, so
-     muted *text* uses --text-secondary. --grey is reserved for placeholders
-     and large/decorative text. */
+  /* --grey clears 5:1 on --bg, but body copy still uses --text-secondary. */
   --muted-foreground: var(--text-secondary);
   --accent: var(--layer-1);
   --accent-foreground: var(--text-primary);
@@ -58,15 +62,15 @@
   --input: var(--stroke-strong);
   --ring: var(--accent-1);
   --chart-1: var(--accent-1);
-  --chart-2: #8a83e6;
-  --chart-3: #b9b4f0;
+  --chart-2: #b8955e;
+  --chart-3: #7f6844;
   --chart-4: var(--text-secondary);
   --chart-5: var(--grey);
   --sidebar: var(--layer-1);
   --sidebar-foreground: var(--text-primary);
   --sidebar-primary: var(--accent-1);
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: var(--bg);
+  --sidebar-primary-foreground: var(--on-accent);
+  --sidebar-accent: var(--layer-2);
   --sidebar-accent-foreground: var(--text-primary);
   --sidebar-border: var(--stroke-strong);
   --sidebar-ring: var(--accent-1);
@@ -75,10 +79,11 @@
   --radius: 0.75rem;
 
   /* --- elevation --- */
-  --shadow-xs: 0 1px 2px rgb(16 16 24 / 0.05);
-  --shadow-sm: 0 1px 3px rgb(16 16 24 / 0.06), 0 1px 2px rgb(16 16 24 / 0.04);
-  --shadow-md: 0 6px 16px -4px rgb(16 16 24 / 0.08), 0 2px 4px -2px rgb(16 16 24 / 0.04);
-  --shadow-lg: 0 18px 40px -12px rgb(16 16 24 / 0.14), 0 4px 10px -4px rgb(16 16 24 / 0.05);
+  /* Dark UIs need heavier shadows to read at all. */
+  --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.35);
+  --shadow-sm: 0 1px 3px rgb(0 0 0 / 0.4), 0 1px 2px rgb(0 0 0 / 0.3);
+  --shadow-md: 0 8px 20px -6px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.35);
+  --shadow-lg: 0 24px 48px -16px rgb(0 0 0 / 0.65), 0 6px 12px -6px rgb(0 0 0 / 0.4);
   --shadow-focus: 0 0 0 3px color-mix(in srgb, var(--accent-1) 22%, transparent);
 
   /* --- layering --- */
@@ -112,6 +117,7 @@
   --color-brand: var(--accent-1);
   --color-brand-hover: var(--accent-1-hover);
   --color-brand-soft: var(--accent-1-bg);
+  --color-on-accent: var(--on-accent);
   --color-ink: var(--text-primary);
   --color-ink-2: var(--text-secondary);
   --color-ink-3: var(--grey);

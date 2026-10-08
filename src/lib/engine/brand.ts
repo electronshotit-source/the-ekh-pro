@@ -29,7 +29,7 @@ export const BRAND_DEFAULTS: BrandKit = {
   logo: null,
   logoPosition: "br",
   logoOpacity: 0.85,
-  accent: "#564CD8",
+  accent: "#D9B77E",
   ink: "#FDF9F2",
   shadow: "#1A1410",
   gradeFromBrand: false,

@@ -123,7 +123,7 @@ function Analysing() {
               className="flex items-center gap-2 rounded-xl border border-stroke-strong px-3 py-2.5 text-sm text-ink-2"
             >
               <span
-                className={`grid size-4 place-items-center rounded-full transition-colors ${on ? "bg-success text-white" : "bg-layer-2"}`}
+                className={`grid size-4 place-items-center rounded-full transition-colors ${on ? "bg-success text-surface" : "bg-layer-2"}`}
               >
                 {on && <Check className="size-3" aria-hidden />}
               </span>

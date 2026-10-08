@@ -239,7 +239,7 @@ export class Reel {
     const pct = Math.min(1, t / this.duration)
     g.fillStyle = "rgba(255,255,255,0.18)"
     g.fillRect(W * 0.06, H * 0.955, W * 0.88, 3)
-    g.fillStyle = brand.get().accent || "#564cd8"
+    g.fillStyle = brand.get().accent || "#d9b77e"
     g.fillRect(W * 0.06, H * 0.955, W * 0.88 * pct, 3)
   }
 

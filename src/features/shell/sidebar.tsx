@@ -44,7 +44,7 @@ export function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
                       className={cn(
                         "group flex h-9 items-center gap-2.5 rounded-lg px-2.5 text-sm transition-colors",
                         active
-                          ? "bg-surface font-medium text-ink shadow-xs ring-1 ring-stroke-strong"
+                          ? "bg-layer-2 font-medium text-ink ring-1 ring-stroke-strong"
                           : "text-ink-2 hover:bg-layer-2 hover:text-ink",
                         dim && !active && "text-ink-3",
                       )}

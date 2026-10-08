@@ -48,7 +48,7 @@ function Selects() {
             <span className="tabular absolute top-1.5 right-1.5 rounded bg-success-soft px-1 text-[0.55rem] font-semibold text-success">
               {f.score}
             </span>
-            <span className="absolute bottom-1.5 left-1.5 rounded bg-white/85 px-1 text-[0.55rem] font-medium text-ink">
+            <span className="absolute bottom-1.5 left-1.5 rounded bg-black/60 px-1 text-[0.55rem] font-medium text-white">
               {f.role}
             </span>
           </motion.li>
@@ -61,7 +61,7 @@ function Selects() {
             key={r.why}
             className={cn("relative aspect-[4/3] rounded-lg bg-gradient-to-br opacity-50 grayscale", r.bg)}
           >
-            <span className="absolute bottom-1.5 left-1.5 rounded bg-white/90 px-1 text-[0.55rem] font-medium text-ink">
+            <span className="absolute bottom-1.5 left-1.5 rounded bg-black/60 px-1 text-[0.55rem] font-medium text-white">
               {r.why}
             </span>
           </div>
@@ -141,7 +141,7 @@ function ReelTab() {
       </div>
       <div className="flex flex-col gap-2">
         <div className="flex items-center gap-2 text-[0.7rem] text-ink-2">
-          <span className="grid size-6 place-items-center rounded-full bg-ink text-white">
+          <span className="grid size-6 place-items-center rounded-full bg-ink text-surface">
             <Pause className="size-3" />
           </span>
           Lagos Gold · 102 BPM · cuts on the beat

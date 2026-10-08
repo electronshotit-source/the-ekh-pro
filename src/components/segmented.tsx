@@ -87,7 +87,7 @@ export function Segmented<T extends string | number>({
               <motion.span
                 layoutId={`seg-${id}`}
                 transition={spring}
-                className="absolute inset-0 rounded-md bg-surface shadow-xs ring-1 ring-stroke-strong"
+                className="absolute inset-0 rounded-md bg-layer-2 shadow-xs ring-1 ring-stroke-strong"
                 aria-hidden
               />
             )}

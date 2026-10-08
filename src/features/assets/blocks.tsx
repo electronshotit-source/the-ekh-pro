@@ -173,7 +173,7 @@ export function SlidesBlock({ slides, shots, tall }: { slides: Slide[]; shots: S
               className={cn("w-full rounded-lg", tall ? "aspect-[9/16]" : "aspect-[4/5]")}
             />
             {s.n !== undefined && (
-              <span className="tabular absolute top-1.5 left-1.5 grid size-5 place-items-center rounded bg-ink/75 text-[0.65rem] font-medium text-white">
+              <span className="tabular absolute top-1.5 left-1.5 grid size-5 place-items-center rounded bg-black/70 text-[0.65rem] font-medium text-white">
                 {s.n}
               </span>
             )}

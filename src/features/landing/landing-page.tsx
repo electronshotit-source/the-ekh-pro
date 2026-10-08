@@ -128,7 +128,7 @@ export function LandingPage() {
               ))}
             </ul>
           </nav>
-          <Button asChild variant="dark">
+          <Button asChild>
             <Link href="/studio">Open the studio</Link>
           </Button>
         </div>
@@ -275,7 +275,7 @@ export function LandingPage() {
           <ul className="mt-14 grid gap-x-10 gap-y-12 md:grid-cols-2">
             {FEATURES.map((f) => (
               <li key={f.title} className="flex gap-4">
-                <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-ink text-white">
+                <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand-soft text-brand">
                   <f.icon className="size-5" aria-hidden />
                 </span>
                 <div>
@@ -322,11 +322,11 @@ export function LandingPage() {
 
         {/* Closing CTA */}
         <section className="px-4 pb-24 sm:px-6">
-          <div className="mx-auto max-w-6xl overflow-hidden rounded-3xl bg-ink px-6 py-16 text-center sm:px-12">
-            <h2 className="mx-auto max-w-2xl text-3xl font-semibold tracking-tight text-balance text-white sm:text-4xl">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-layer-1 bg-[radial-gradient(70%_90%_at_50%_0%,var(--accent-1-bg),transparent)] px-6 py-16 text-center ring-1 ring-stroke-strong sm:px-12">
+            <h2 className="mx-auto max-w-2xl text-3xl font-semibold tracking-tight text-balance text-ink sm:text-4xl">
               Your last wedding deserves more than <span className="font-serif font-normal italic">one</span> post.
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-white/70">
+            <p className="mx-auto mt-4 max-w-xl text-ink-2">
               Try the whole workflow on a sample wedding. No account, no upload, two minutes.
             </p>
             <Button asChild size="xl" className="mt-8">

@@ -499,7 +499,7 @@ function ReelLab() {
             </Button>
             <Button
               size="icon-lg"
-              variant="dark"
+              variant="default"
               className="size-11 rounded-full"
               aria-label={playing ? "Pause" : "Play"}
               onClick={toggle}

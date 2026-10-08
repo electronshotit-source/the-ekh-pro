@@ -171,7 +171,7 @@ function Assets() {
                     onClick={() => setFilter(k)}
                     className={cn(
                       "rounded-full px-2.5 py-1 text-xs transition-colors",
-                      filter === k ? "bg-ink text-white" : "bg-layer-1 text-ink-2 hover:bg-layer-2",
+                      filter === k ? "bg-ink text-surface" : "bg-layer-1 text-ink-2 hover:bg-layer-2",
                     )}
                   >
                     {k === "all" ? "All" : ASSETS[k].label}

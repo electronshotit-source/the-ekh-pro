@@ -8,7 +8,7 @@ export function BrandMark({ className, href = "/" }: { className?: string; href?
     <span className={cn("inline-flex items-center gap-2 text-ink", className)}>
       <span
         aria-hidden
-        className="grid size-7 place-items-center rounded-lg bg-ink font-serif text-[1.05rem] text-white italic"
+        className="grid size-7 place-items-center rounded-lg bg-brand font-serif text-[1.05rem] text-on-accent italic"
       >
         e
       </span>

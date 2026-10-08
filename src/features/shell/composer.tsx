@@ -122,7 +122,7 @@ export function Composer() {
             disabled={!ready || !value.trim()}
             whileTap={{ scale: 0.92 }}
             transition={spring}
-            className="grid size-9 shrink-0 place-items-center rounded-xl bg-brand text-white transition-colors hover:bg-brand-hover disabled:bg-layer-2 disabled:text-ink-3"
+            className="grid size-9 shrink-0 place-items-center rounded-xl bg-brand text-on-accent transition-colors hover:bg-brand-hover disabled:bg-layer-2 disabled:text-ink-3"
           >
             <ArrowUp className="size-4" aria-hidden />
           </motion.button>

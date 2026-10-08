@@ -60,7 +60,7 @@ export function PricingTable({
               )}
             >
               {plan.featured && (
-                <p className="bg-brand py-1.5 text-center text-xs font-medium text-white">Most popular</p>
+                <p className="bg-brand py-1.5 text-center text-xs font-medium text-on-accent">Most popular</p>
               )}
               <div className="flex flex-1 flex-col p-6">
                 <div className="flex items-center justify-between gap-2">

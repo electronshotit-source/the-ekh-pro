@@ -50,7 +50,7 @@ export function MusicPanel(p: MusicPanelProps) {
       {p.track ? (
         <div className="rounded-xl border border-brand/30 bg-brand-soft/50 p-3">
           <div className="flex items-start gap-2.5">
-            <span className="grid size-8 shrink-0 place-items-center rounded-lg bg-brand text-white" aria-hidden>
+            <span className="grid size-8 shrink-0 place-items-center rounded-lg bg-brand text-on-accent" aria-hidden>
               <Music className="size-4" />
             </span>
             <div className="min-w-0 flex-1">
@@ -141,7 +141,7 @@ export function MusicPanel(p: MusicPanelProps) {
                 onClick={() => setMood(mood === m ? null : m)}
                 className={cn(
                   "rounded-full px-2.5 py-1 text-xs transition-colors",
-                  mood === m ? "bg-ink text-white" : "bg-layer-1 text-ink-2 hover:bg-layer-2",
+                  mood === m ? "bg-ink text-surface" : "bg-layer-1 text-ink-2 hover:bg-layer-2",
                 )}
               >
                 {m}
@@ -166,7 +166,7 @@ export function MusicPanel(p: MusicPanelProps) {
                     <span
                       className={cn(
                         "grid size-8 shrink-0 place-items-center rounded-lg",
-                        on ? "bg-brand text-white" : "bg-layer-1 text-ink-2",
+                        on ? "bg-brand text-on-accent" : "bg-layer-1 text-ink-2",
                       )}
                       aria-hidden
                     >

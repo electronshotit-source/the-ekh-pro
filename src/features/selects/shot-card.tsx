@@ -90,7 +90,7 @@ export function ShotCard({ shot, index, pinned, excluded, reason, onPin, onExclu
 
         <div className="absolute inset-x-2 top-2 flex items-start justify-between gap-2">
           {index !== undefined ? (
-            <span className="tabular grid h-6 min-w-6 place-items-center rounded-md bg-ink/80 px-1.5 text-xs font-medium text-white backdrop-blur">
+            <span className="tabular grid h-6 min-w-6 place-items-center rounded-md bg-black/70 px-1.5 text-xs font-medium text-white backdrop-blur">
               {index + 1}
             </span>
           ) : (
@@ -100,7 +100,7 @@ export function ShotCard({ shot, index, pinned, excluded, reason, onPin, onExclu
             <PopoverTrigger
               aria-label={`Score ${shot.m.score}. Show breakdown`}
               className={cn(
-                "tabular rounded-md px-1.5 py-0.5 text-xs font-semibold shadow-xs ring-1 ring-black/5 transition-transform hover:scale-105",
+                "tabular rounded-md px-1.5 py-0.5 text-xs font-semibold shadow-xs ring-1 ring-black/20 transition-transform hover:scale-105",
                 scoreTone(shot.m.score),
               )}
             >
@@ -122,7 +122,7 @@ export function ShotCard({ shot, index, pinned, excluded, reason, onPin, onExclu
                 aria-label={pinned ? "Unpin from selects" : "Pin to selects"}
                 className={cn(
                   "grid size-8 place-items-center rounded-lg shadow-sm backdrop-blur transition-colors",
-                  pinned ? "bg-brand text-white" : "bg-surface/90 text-ink hover:bg-surface",
+                  pinned ? "bg-brand text-on-accent" : "bg-surface/90 text-ink hover:bg-surface",
                 )}
               >
                 {pinned ? <PinOff className="size-4" /> : <Pin className="size-4" />}
